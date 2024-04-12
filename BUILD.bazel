@@ -1,0 +1,14 @@
+load("//:run_binary.bzl", "run_binary")
+
+run_binary(
+    name = "build_infinite_loop",
+    tool = ":run_infinite_loop",
+    outs = ["this_will_not_be_created"],
+)
+
+java_binary(
+    name = "run_infinite_loop",
+    srcs = ["InfiniteLoop.java"],
+    main_class = "InfiniteLoop",
+)
+
